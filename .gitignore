@@ -1,0 +1,11 @@
+# Byte-compiled files
+*.pyc
+__pycache__/
+
+# Distribution & packaging
+*.egg-info/
+build/
+dist/
+
+# Testing
+.tox/
