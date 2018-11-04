@@ -5,6 +5,7 @@ with open("README.rst") as fp:
 
 setup(
     name="django-check-admin",
+    version="0.9.0",
     description=(
         "A Django app to check that all models have been added to the Django "
         "admin site."
