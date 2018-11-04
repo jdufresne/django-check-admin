@@ -43,14 +43,14 @@ emitted. For example:
     The model myapp.MyModel is not registered with an admin site.
 
 If specific models should be ignored by the check, use
-``checkadmin.ignore()``::
+``checkadmin.ignore()``:
 
 .. code-block:: python
 
-   import checkadmin
-   from myapp.models import MyModel
+    import checkadmin
+    from myapp.models import MyModel
 
-   checkadmin.ignore(MyModel)
+    checkadmin.ignore(MyModel)
 
 Now, even if ``MyModel`` is not registered with an admin site, an error will
 not be emitted.
