@@ -1,5 +1,6 @@
-import checkadmin
 from django.contrib import admin
+
+import checkadmin
 
 from . import models
 
