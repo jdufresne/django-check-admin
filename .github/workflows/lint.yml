@@ -1,0 +1,29 @@
+name: Lint
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        lint:
+          - black
+          - flake8
+          - isort
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install tox
+
+      - name: Run
+        run: |
+          tox -e ${{ matrix.lint }}
