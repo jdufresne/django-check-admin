@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        lint:
+        lint-environment:
           - black
           - flake8
           - isort
@@ -18,7 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-python@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
 
       - name: Install dependencies
         run: |
@@ -26,4 +27,4 @@ jobs:
 
       - name: Run
         run: |
-          tox -e ${{ matrix.lint }}
+          tox -e ${{ matrix.lint-environment }}

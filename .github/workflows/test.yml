@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
-        python:
+        python-version:
           - 3.6
           - 3.7
           - 3.8
           - 3.9
-        django:
+        django-environment:
           - django22
           - django30
           - django31
@@ -24,9 +25,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-python@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: |
@@ -34,4 +36,4 @@ jobs:
 
       - name: Run tests
         run: |
-          tox -e ${{ matrix.django }}
+          tox -e ${{ matrix.django-environment }}
