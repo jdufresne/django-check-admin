@@ -60,4 +60,4 @@ jobs:
         run: python -m pip install tox
 
       - name: Run
-        run: tox -e ${{ os.toxenv }}
+        run: tox -e ${{ matrix.toxenv }}
