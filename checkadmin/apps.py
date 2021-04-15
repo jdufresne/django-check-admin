@@ -7,6 +7,6 @@ from . import checks
 class CheckAdminConfig(AppConfig):
     name = "checkadmin"
 
-    def ready(self):
+    def ready(self) -> None:
         super(CheckAdminConfig, self).ready()
         register(checks.check_admin)

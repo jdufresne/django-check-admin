@@ -1,13 +1,16 @@
 import site
+from typing import Any, Iterable, List, Optional
 
-from django.apps import apps
+from django.apps import AppConfig, apps
 from django.contrib.admin.sites import all_sites
-from django.core.checks import Error
+from django.core.checks import CheckMessage, Error
 
 from . import ignored
 
 
-def check_admin(app_configs, **kwargs):
+def check_admin(
+    app_configs: Optional[Iterable[AppConfig]], **kwargs: Any
+) -> List[CheckMessage]:
     errors = []
     if not apps.is_installed("django.contrib.admin"):
         errors.append(

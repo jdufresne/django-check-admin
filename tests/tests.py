@@ -15,7 +15,7 @@ class CheckAdminTest(TestCase):
             "tests",
         ]
     )
-    def test_check_dependency(self):
+    def test_check_dependency(self) -> None:
         errors = run_checks()
         self.assertEqual(
             errors,
@@ -39,7 +39,7 @@ class CheckAdminTest(TestCase):
             "tests",
         ]
     )
-    def test_check_admin(self):
+    def test_check_admin(self) -> None:
         errors = run_checks()
         self.assertEqual(
             errors,

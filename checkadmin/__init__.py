@@ -1,9 +1,10 @@
 import django
+from django.db import models
 
 ignored = set()
 
 
-def ignore(model):
+def ignore(model: models.Model) -> None:
     ignored.add(model)
 
 
