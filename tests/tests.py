@@ -48,8 +48,27 @@ class CheckAdminTest(TestCase):
                     "The model tests.UnregisteredModel is not registered with "
                     "an admin site.",
                     hint="Register the model in tests.admin or ignore this "
-                    "error with checkadmin.ignore().",
+                    "error by adding either checkadmin.ignore() or "
+                    "the CHECK_ADMIN_IGNORED_MODELS settings.",
                     obj=UnregisteredModel,
                 )
             ],
         )
+
+    @override_settings(
+        INSTALLED_APPS=[
+            "django.contrib.admin",
+            "django.contrib.auth",
+            "django.contrib.contenttypes",
+            "django.contrib.sessions",
+            "django.contrib.messages",
+            "checkadmin",
+            "tests",
+        ],
+        CHECK_ADMIN_IGNORED_MODELS=[
+            "tests.UnregisteredModel",
+        ],
+    )
+    def test_defining_ignored_models_in_settings(self) -> None:
+        errors = run_checks()
+        self.assertEqual(errors, [])
