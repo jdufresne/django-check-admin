@@ -15,34 +15,30 @@ jobs:
         include:
           - python: 3.x
             toxenv: lint
-          - python: 3.6
-            toxenv: py36-django22
-          - python: 3.7
-            toxenv: py37-django22
-          - python: 3.8
-            toxenv: py38-django22
-          - python: 3.9
-            toxenv: py39-django22
-          - python: 3.6
-            toxenv: py36-django31
-          - python: 3.7
-            toxenv: py37-django31
-          - python: 3.8
-            toxenv: py38-django31
-          - python: 3.9
-            toxenv: py39-django31
-          - python: 3.6
-            toxenv: py36-django32
           - python: 3.7
             toxenv: py37-django32
           - python: 3.8
             toxenv: py38-django32
           - python: 3.9
             toxenv: py39-django32
+          - python: "3.10"
+            toxenv: py310-django32
           - python: 3.8
-            toxenv: py38-djangomain
+            toxenv: py38-django40
+          - python: 3.9
+            toxenv: py39-django40
+          - python: "3.10"
+            toxenv: py310-django40
+          - python: 3.8
+            toxenv: py38-django41
+          - python: 3.9
+            toxenv: py39-django41
+          - python: "3.10"
+            toxenv: py310-django41
           - python: 3.9
             toxenv: py39-djangomain
+          - python: "3.10"
+            toxenv: py310-djangomain
 
     steps:
       - uses: actions/checkout@v2
